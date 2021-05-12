@@ -10,3 +10,5 @@
 # Add any project specific keep options here:
 
 -dontwarn com.polidea.reactnativeble.**
+-keep class com.facebook.hermes.unicode.** { *; }
+-keep class com.facebook.jni.** { *; }
