@@ -9,7 +9,7 @@ $ yarn
 $ yarn start
 $ yarn android
 ```
-***Note:** also make sure you have react-native on machine (see [React Native - Setting up the development environment](https://reactnative.dev/docs/environment-setup))*
+***Note:** also make sure your machine have react-native (see [React Native - Setting up the development environment](https://reactnative.dev/docs/environment-setup))*
 
 ## Built Using
 
