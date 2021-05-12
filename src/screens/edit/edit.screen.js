@@ -16,7 +16,7 @@ function EditScreen({ route }) {
 			.join(""),
 	].join(" ");
 
-	console.log("EditScreen Rendering")
+	console.log("EditScreen Rendering");
 
 	return (
 		<EditLayout title={title}>

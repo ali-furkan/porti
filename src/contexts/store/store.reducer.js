@@ -11,28 +11,30 @@ export default (prevState, a) => {
 		case actions.UPDATE_ITEM:
 			return {
 				...prevState,
-				[a.field]:   {
+				[a.field]: {
 					...prevState[a.field],
-					data: prevState[a.field].data.map((i) => (a.item === i.id ? a.data : i)),
-				}
+					data: prevState[a.field].data.map((i) =>
+						a.item === i.id ? a.data : i,
+					),
+				},
 			};
-		case actions.CREATE_ITEM: return {
-			...prevState,
-			[a.field]:   {
-				...prevState[a.field],
-				data: [
-					...prevState[a.field].data,
-					a.data
-				]
-			}
-		};
+		case actions.CREATE_ITEM:
+			return {
+				...prevState,
+				[a.field]: {
+					...prevState[a.field],
+					data: [...prevState[a.field].data, a.data],
+				},
+			};
 		case actions.DELETE_ITEM:
 			return {
 				...prevState,
 				[a.field]: {
 					...prevState[a.field],
-					data: prevState[a.field].data.filter((i) => (a.item === i.id ? false : true)),
-				}
+					data: prevState[a.field].data.filter((i) =>
+						a.item === i.id ? false : true,
+					),
+				},
 			};
 		case actions.SET_DATA:
 			return {

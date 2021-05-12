@@ -33,7 +33,7 @@ function Initializor() {
 const MemoInitializor = React.memo(Initializor);
 
 export function StoreProvider({ children }) {
-	const [state, dispatch] = useReducer(storeReducer, { });
+	const [state, dispatch] = useReducer(storeReducer, {});
 
 	const storeContext = useMemo(
 		() => [

@@ -5,8 +5,7 @@ import Toast from "react-native-toast-message";
 
 import client from "@/lib/upstash-client";
 import Navigator from "@/navigator";
-import {StoreProvider} from "@/contexts/store/store.context"
-
+import { StoreProvider } from "@/contexts/store/store.context";
 
 const App = () => {
 	return (

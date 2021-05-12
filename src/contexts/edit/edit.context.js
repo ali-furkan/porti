@@ -8,7 +8,7 @@ export const EditContext = React.createContext();
 export function EditProvider({ children }) {
 	const [state, dispatch] = useReducer(editReducer, { isNew: null, data: {} });
 
-	const editContext = useMemo(()=>[
+	const editContext = useMemo(() => [
 		state,
 		{
 			updateField: (field, data) =>
@@ -30,9 +30,9 @@ export function EditProvider({ children }) {
 export const useEdit = (type, init) => {
 	const [state, dispatch] = useContext(EditContext);
 
-	useEffect(()=>{
+	useEffect(() => {
 		dispatch.init(type, init);
-	}, [])
+	}, []);
 
 	return [state, dispatch];
 };

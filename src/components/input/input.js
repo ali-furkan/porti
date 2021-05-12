@@ -20,4 +20,4 @@ const Input = ({ style, label, ...props }) => (
 	</View>
 );
 
-export default React.memo(Input)
+export default React.memo(Input);

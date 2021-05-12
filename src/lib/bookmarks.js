@@ -32,4 +32,4 @@ export const DELETE_BOOKMARK = gql`
 	mutation DeleteBookmark($field: String!) {
 		redisHDel(key: "bookmarks", fields: [$field])
 	}
-`
+`;

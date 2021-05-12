@@ -40,7 +40,7 @@ function BookmarkEdit({ isNew, data }) {
 		let field = data && data.field;
 
 		if (isNew) {
-			field = Date.now().toString()
+			field = Date.now().toString();
 		}
 		edit.updateField("field", field);
 
@@ -105,7 +105,13 @@ function BookmarkEdit({ isNew, data }) {
 				onPress={handleAction}
 				text={`${isNew ? "Create" : "Save"} Bookmark`}
 			/>
-			{!isNew && <Button style={{marginVertical: 12}} onPress={handleDelete} text={`Delete Bookmark`} />}
+			{!isNew && (
+				<Button
+					style={{ marginVertical: 12 }}
+					onPress={handleDelete}
+					text={`Delete Bookmark`}
+				/>
+			)}
 			{error && (
 				<Text style={{ color: "#f00" }}>
 					{error.name} {error.message}{" "}

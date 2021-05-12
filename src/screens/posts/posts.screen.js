@@ -13,15 +13,16 @@ import { useStore } from "@/contexts/store/store.context";
 const POST_BASE_URI = "https://alifurkan.co/posts/";
 
 function PostScreen({ navigation }) {
-	const [store] = useStore()
-	const { posts: { loading, error, data } } = store
-
+	const [store] = useStore();
+	const {
+		posts: { loading, error, data },
+	} = store;
 
 	const clickBookmark = (url) => {
 		return async () => await Linking.openURL(url);
 	};
 
-	console.log("Rendering")
+	console.log("Rendering");
 
 	return (
 		<MainLayout>
