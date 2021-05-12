@@ -10,6 +10,8 @@ import { spacing, typography } from "@/styles";
 import Input from "@/components/input/input";
 import Button from "@/components/button/button";
 
+import styles from "./edit.style"
+
 function PostEdit({ isNew, data }) {
 	const [editState, setState] = useState({ error: null, loading: false });
 	const [state, edit] = useEdit(isNew ? "create" : "edit", {
@@ -54,8 +56,9 @@ function PostEdit({ isNew, data }) {
 	}, []);
 
 	return (
-		<ScrollView style={{ flex: 1, ...spacing.padding(8, 12) }}>
+		<ScrollView style={styles.editContainer}>
 			<Input
+				style={styles.input}
 				label="Title"
 				placeholder="title"
 				onChangeText={(t) => edit.updateField("title", t)}
@@ -63,6 +66,7 @@ function PostEdit({ isNew, data }) {
 				defaultValue={data.title || ""}
 			/>
 			<Input
+				style={styles.input}
 				label="Subtitle"
 				placeholder="subtitle"
 				onChangeText={(t) => edit.updateField("subtitle", t)}
@@ -70,6 +74,7 @@ function PostEdit({ isNew, data }) {
 				defaultValue={data.subtitle || ""}
 			/>
 			<Input
+				style={styles.input}
 				label="Description"
 				placeholder="description"
 				onChangeText={(t) => edit.updateField("description", t)}
@@ -77,6 +82,7 @@ function PostEdit({ isNew, data }) {
 				defaultValue={data.description || ""}
 			/>
 			<Input
+				style={styles.input}
 				label="Slug"
 				placeholder="slug-name"
 				onChangeText={(t) => edit.updateField("slug", t)}
@@ -84,24 +90,17 @@ function PostEdit({ isNew, data }) {
 				defaultValue={data.slug || ""}
 			/>
 			<Input
+				style={styles.input}
 				label="Image"
 				placeholder="image url"
 				onChangeText={(t) => edit.updateField("image", t)}
 				value={state.data.image}
 				defaultValue={data.image || ""}
 			/>
-			<View style={{ marginVertical: 12 }}>
-				<Text style={{ fontFamily: typography.FONT_WEIGHT[600] }}>Content</Text>
+			<View style={styles.input}>
+				<Text style={styles.editorLabel}>Content</Text>
 				<TextInput
-					style={{
-						color: "#fff",
-						backgroundColor: "#333",
-						borderRadius: 8,
-						textAlignVertical: "top",
-						height: 180,
-						...spacing.padding(8, 12),
-						fontFamily: typography.FONT_WEIGHT[500],
-					}}
+					style={styles.editorInput}
 					underlineColorAndroid="transparent"
 					placeholderTextColor={"#888"}
 					placeholder="Type something for content"
@@ -110,10 +109,10 @@ function PostEdit({ isNew, data }) {
 					defaultValue={data.content || ""}
 				/>
 			</View>
-			<Button onPress={handleSubmit} text="Submit" />
-			{!isNew && <Button onPress={handleDelete} text="Delete Post" />}
+			<Button style={styles.button} onPress={handleSubmit} text="Submit" />
+			{!isNew && <Button style={styles.button} onPress={handleDelete} text="Delete Post" />}
 			{editState.error && (
-				<Text style={{ color: "#f00" }}>{editState.error.toString()}</Text>
+				<Text style={styles.error}>{editState.error.toString()}</Text>
 			)}
 			{editState.loading && <Text> Loading... </Text>}
 		</ScrollView>

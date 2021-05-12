@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useCallback } from "react";
 import { Text, View } from "react-native";
 import { useMutation } from "@apollo/client";
 import { useNavigation } from "@react-navigation/core";
@@ -12,9 +12,10 @@ import {
 } from "@/lib/bookmarks";
 import Button from "@/components/button/button";
 import Input from "@/components/input/input";
-import { useCallback } from "react";
 import { useEdit } from "@/contexts/edit/edit.context";
 import { useStore } from "@/contexts/store/store.context";
+
+import styles from "./edit.style"
 
 function BookmarkEdit({ isNew, data }) {
 	const navigate = useNavigation();
@@ -84,7 +85,7 @@ function BookmarkEdit({ isNew, data }) {
 	}, [loading, error, mutData]);
 
 	return (
-		<View style={{ flex: 1, ...spacing.padding(8, 12) }}>
+		<View style={styles.editContainer}>
 			<Input
 				label="Title"
 				placeholder="type a bookmark title"
@@ -94,7 +95,7 @@ function BookmarkEdit({ isNew, data }) {
 			/>
 
 			<Input
-				style={{ marginVertical: spacing.SCALE[16] }}
+				style={styles.input}
 				label="Url"
 				placeholder="https://example.com"
 				onChangeText={(t) => edit.updateField("url", t)}
@@ -102,19 +103,20 @@ function BookmarkEdit({ isNew, data }) {
 				defaultValue={(data && data.url) || ""}
 			/>
 			<Button
+				style={styles.button}
 				onPress={handleAction}
 				text={`${isNew ? "Create" : "Save"} Bookmark`}
 			/>
 			{!isNew && (
 				<Button
-					style={{ marginVertical: 12 }}
+					style={styles.button}
 					onPress={handleDelete}
 					text={`Delete Bookmark`}
 				/>
 			)}
 			{error && (
-				<Text style={{ color: "#f00" }}>
-					{error.name} {error.message}{" "}
+				<Text style={styles.error}>
+					{error.name} {error.message}
 				</Text>
 			)}
 			{loading && <Text> Loading... </Text>}
