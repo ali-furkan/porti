@@ -11,54 +11,6 @@ import styles from "./home.style";
 function HomeScreen() {
 	const [state] = useStore();
 
-	// const manager = new BleManager();
-
-	// useEffect(() => {
-	// 	console.log("rendering");
-	// 	(async () => {
-	// 		if ((await manager.state()) === "PoweredOn") {
-	// 			scanAndConnect();
-	// 			return;
-	// 		}
-
-	// 		const sub = manager.onStateChange((state) => {
-	// 			console.log({ state });
-	// 			if (state == "PoweredOn") {
-	// 				scanAndConnect();
-	// 				sub.remove();
-	// 			}
-	// 		});
-	// 	})();
-	// }, []);
-
-	// const scanAndConnect = async () => {
-	// 	manager.startDeviceScan(null, null, (err, device) => {
-	// 		if (err) return;
-
-	// 		if (["Mi Band 3", "Mi Band 4"].includes(device.name)) {
-	// 			handle(device);
-	// 			manager.stopDeviceScan();
-	// 		}
-	// 	});
-	// };
-
-	// /**
-	//  *
-	//  * @param {import("react-native-ble-plx").Device} device
-	//  */
-	// const handle = async (device) => {
-	// 	await device.connect();
-	// 	await device.discoverAllServicesAndCharacteristics();
-
-	// 	const services = await device.services();
-	// 	console.log(services);
-	// 	const service = services[0];
-	// 	const characteristics = await service.characteristics();
-
-	// 	const data = await characteristics[0].read();
-	// 	console.log({ data });
-	// };
-
 	return (
 		<MainLayout>
 			<View style={styles.container}>
