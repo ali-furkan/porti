@@ -20,4 +20,4 @@ $ yarn android
 
 ## License
 
-This repository is [MIT licensed](./LICENSE).
+This repository licensed under the [MIT license](./LICENSE).
